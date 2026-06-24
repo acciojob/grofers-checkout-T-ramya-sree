@@ -8,11 +8,16 @@ const getSum = () => {
 	const prices=document.querySelectorAll(".prices");
 	let total=0;
 	prices.forEach(price => {
-		total +=Number(price.textContent);
+		total +=parseInt(price.textContent)||0;
 	});
+	const oldAns=document.getElementById("ans");
+	if(oldAns){
+		oldAns.parseElement.remove();
+	}
 	const tr=document.createElement("tr");
 	const td=document.createElement("td");
 
+	td.id="ans";
 	td.colSpan=2;
 	td.textContent=total;
 
